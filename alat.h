@@ -24,3 +24,4 @@ void bubbleSortNama();
 void selectionSortStok();
 
 #endif
+a
