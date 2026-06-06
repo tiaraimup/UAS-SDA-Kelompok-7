@@ -187,3 +187,76 @@ void hapusAlat()
 
     printf("Data berhasil dihapus!\n");
 }
+
+void bubbleSortNama()
+{
+    if(head == NULL)
+    {
+        return;
+    }
+
+    int swapped;
+
+    Alat *ptr1;
+    Alat *lptr = NULL;
+
+    do{
+        swapped = 0;
+
+        ptr1 = head;
+
+        while(ptr1->next != lptr)
+        {
+            if(strcmp(ptr1->nama,
+                      ptr1->next->nama) > 0)
+            {
+                Alat temp = *ptr1;
+
+                ptr1->id = ptr1->next->id;
+                strcpy(ptr1->nama,ptr1->next->nama);
+                strcpy(ptr1->kategori,ptr1->next->kategori);
+                ptr1->stok = ptr1->next->stok;
+                ptr1->harga = ptr1->next->harga;
+
+                ptr1->next->id = temp.id;
+                strcpy(ptr1->next->nama,temp.nama);
+                strcpy(ptr1->next->kategori,temp.kategori);
+                ptr1->next->stok = temp.stok;
+                ptr1->next->harga = temp.harga;
+
+                swapped = 1;
+            }
+
+            ptr1 = ptr1->next;
+        }
+
+        lptr = ptr1;
+
+    }while(swapped);
+
+    printf("Data berhasil diurutkan berdasarkan nama.\n");
+}
+
+void selectionSortStok()
+{
+    Alat *i,*j,*min;
+
+    for(i=head;i!=NULL;i=i->next)
+    {
+        min = i;
+
+        for(j=i->next;j!=NULL;j=j->next)
+        {
+            if(j->stok < min->stok)
+            {
+                min = j;
+            }
+        }
+
+        int temp = i->stok;
+        i->stok = min->stok;
+        min->stok = temp;
+    }
+
+    printf("Data berhasil diurutkan berdasarkan stok.\n");
+}
