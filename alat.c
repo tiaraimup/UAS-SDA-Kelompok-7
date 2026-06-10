@@ -33,10 +33,115 @@ void swapData(Alat *a, Alat *b)
     b->harga = tempHarga;
 }
 
+void initData()
+{
+    Alat *a1 = (Alat*)malloc(sizeof(Alat));
+    Alat *a2 = (Alat*)malloc(sizeof(Alat));
+    Alat *a3 = (Alat*)malloc(sizeof(Alat));
+    Alat *a4 = (Alat*)malloc(sizeof(Alat));
+    Alat *a5 = (Alat*)malloc(sizeof(Alat));
+
+    a1->id = 1;
+    strcpy(a1->nama, "Gitar");
+    strcpy(a1->kategori, "String");
+    a1->stok = 5;
+    a1->harga = 25000;
+
+    a2->id = 2;
+    strcpy(a2->nama, "Drum");
+    strcpy(a2->kategori, "Percussion");
+    a2->stok = 2;
+    a2->harga = 50000;
+
+    a3->id = 3;
+    strcpy(a3->nama, "Piano");
+    strcpy(a3->kategori, "Keyboard");
+    a3->stok = 1;
+    a3->harga = 100000;
+
+    a4->id = 4;
+    strcpy(a4->nama, "Biola");
+    strcpy(a4->kategori, "String");
+    a4->stok = 3;
+    a4->harga = 30000;
+
+    a5->id = 5;
+    strcpy(a5->nama, "Saxophone");
+    strcpy(a5->kategori, "Tiup");
+    a5->stok = 4;
+    a5->harga = 45000;
+
+    a1->next = a2;
+    a2->next = a3;
+    a3->next = a4;
+    a4->next = a5;
+    a5->next = NULL;
+
+    head = a1;
+
+    root = insertBST(root, 1, "Gitar");
+    root = insertBST(root, 2, "Drum");
+    root = insertBST(root, 3, "Piano");
+    root = insertBST(root, 4, "Biola");
+    root = insertBST(root, 5, "Saxophone");
+
+    insertHash(1);
+    insertHash(2);
+    insertHash(3);
+    insertHash(4);
+    insertHash(5);
+}
+
+void tampilAlat()
+{
+    Alat *temp = head;
+
+    if(temp == NULL)
+    {
+        printf("Data kosong!\n");
+        return;
+    }
+
+    printf("\n");
+    printf("====================================================================\n");
+    printf("| ID | Nama Alat       | Kategori      | Stok | Harga Sewa/Jam     |\n");
+    printf("====================================================================\n");
+
+    while(temp != NULL)
+    {
+        printf("| %-2d | %-15s | %-13s | %-4d | %-18.2f |\n",
+               temp->id,
+               temp->nama,
+               temp->kategori,
+               temp->stok,
+               temp->harga);
+
+        temp = temp->next;
+    }
+
+    printf("====================================================================\n");
+}
+
+Alat* cariAlatID(int id)
+{
+    Alat *temp = head;
+
+    while(temp != NULL)
+    {
+        if(temp->id == id)
+        {
+            return temp;
+        }
+
+        temp = temp->next;
+    }
+
+    return NULL;
+}
+
 void tambahAlat()
 {
-    Alat *baru =
-    (Alat*)malloc(sizeof(Alat));
+    Alat *baru =(Alat*)malloc(sizeof(Alat));
 
     printf("ID Alat : ");
     scanf("%d",&baru->id);
@@ -71,55 +176,10 @@ void tambahAlat()
         temp->next = baru;
     }
 
-    root = insertBST(
-        root,
-        baru->id,
-        baru->nama
-    );
-
+    root = insertBST(root, baru->id, baru->nama);
     insertHash(baru->id);
 
     printf("\nData berhasil ditambahkan!\n");
-}
-
-void tampilAlat()
-{
-    Alat *temp = head;
-
-    if(temp == NULL)
-    {
-        printf("Data kosong!\n");
-        return;
-    }
-
-    while(temp != NULL)
-    {
-        printf("\n====================\n");
-        printf("ID       : %d\n",temp->id);
-        printf("Nama     : %s\n",temp->nama);
-        printf("Kategori : %s\n",temp->kategori);
-        printf("Stok     : %d\n",temp->stok);
-        printf("Harga    : %.2f\n",temp->harga);
-
-        temp = temp->next;
-    }
-}
-
-Alat* cariAlatID(int id)
-{
-    Alat *temp = head;
-
-    while(temp != NULL)
-    {
-        if(temp->id == id)
-        {
-            return temp;
-        }
-
-        temp = temp->next;
-    }
-
-    return NULL;
 }
 
 void updateAlat()
