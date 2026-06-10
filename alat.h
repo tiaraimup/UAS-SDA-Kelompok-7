@@ -12,11 +12,11 @@ typedef struct Alat{
 }Alat;
 
 extern Alat *head;
-
-void tambahAlat();
 void tampilAlat();
+void tambahAlat();
 void updateAlat();
 void hapusAlat();
+void initData();
 
 Alat* cariAlatID(int id);
 
