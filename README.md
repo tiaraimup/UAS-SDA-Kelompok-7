@@ -1,7 +1,7 @@
 # UAS-SDA-Kelompok-7
-# Sistem Penyewaan Alat Musik Studio
+# Sistem Peminjaman Alat Studio Musik
 
-Sistem Penyewaan Alat Musik Studio merupakan program berbasis Command Line Interface (CLI) yang dibuat menggunakan bahasa C. Program ini digunakan untuk mengelola data alat musik yang tersedia di studio, mengatur antrean penyewa, menyimpan riwayat aktivitas, serta melakukan pencarian dan pengurutan data alat musik.
+Sistem Peminjaman Alat Studio Musik merupakan program berbasis Command Line Interface (CLI) yang dibuat menggunakan bahasa C. Program ini digunakan untuk mengelola data alat musik yang tersedia di studio, mengatur antrean peminjam, menyimpan riwayat aktivitas, serta melakukan pencarian dan pengurutan data alat musik.
 
 Dalam implementasinya, program memanfaatkan beberapa struktur data dan algoritma yang dipelajari pada mata kuliah Struktur Data dan Algoritma, seperti Linked List, Queue, Stack, Binary Search Tree (BST), Hash Table, Bubble Sort, dan Selection Sort.
 
@@ -16,7 +16,7 @@ Program ini dikembangkan sebagai proyek Ujian Akhir Semester (UAS) Praktikum Str
 
 | Linked List | Menyimpan data alat musik |
 
-| Queue | Mengelola antrean penyewa |
+| Queue | Mengelola antrean peminjam |
 
 | Stack | Menyimpan riwayat aktivitas |
 
@@ -136,7 +136,7 @@ Password : 123
 
 Program menyediakan beberapa data alat musik awal sebagai berikut:
 
-| ID | Nama Alat | Kategori | Stok | Harga Sewa/Jam |
+| ID | Nama Alat | Kategori | Stok | Harga Pinjam/Jam |
 
 |----|-----------|----------|------|----------------|
 
@@ -258,7 +258,7 @@ Pilihan :
 
 # Pengujian
 
-Pengujian dilakukan pada seluruh fitur utama program, meliputi pengelolaan data alat musik, antrean penyewa, pencarian data, pengurutan data, penyimpanan file, dan pemuatan kembali data dari file.
+Pengujian dilakukan pada seluruh fitur utama program, meliputi pengelolaan data alat musik, antrean peminjam, pencarian data, pengurutan data, penyimpanan file, dan pemuatan kembali data dari file.
 
 Beberapa skenario pengujian yang dilakukan antara lain:
 
@@ -270,9 +270,9 @@ Beberapa skenario pengujian yang dilakukan antara lain:
 
 - Menghapus data alat musik
 
-- Menambah antrean penyewa
+- Menambah antrean peminjam
 
-- Memproses antrean penyewa
+- Memproses antrean peminjam
 
 - Pencarian berdasarkan ID
 
